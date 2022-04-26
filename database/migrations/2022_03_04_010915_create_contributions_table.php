@@ -15,6 +15,19 @@ return new class extends Migration
     {
         Schema::create('contributions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('parishioner_id');
+            $table->unsignedBigInteger('category_id');
+            $table->float('amount',8,2);
+            $table->bigInteger('receipt_number');
+
+
+            $table->foreign('parishioner_id')->references('id')->on('parishioners')
+              ->onUpdate('cascade')
+              ->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('contribution_categories')
+              ->onUpdate('cascade')
+              ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

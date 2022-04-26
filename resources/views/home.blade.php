@@ -31,6 +31,7 @@
           
             
           </div>
+          <iframe src="{{ URL::asset('storage/uploads/'.$file->file_path}}"width="400" height="400"></iframe>
       
     </div>
 
