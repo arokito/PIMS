@@ -4,7 +4,7 @@
     $currentUrl = end($urls);
 ?>
 
-{{-- <div class="relative lg:top-4 ml-6" style="top: -15px !important"> --}}
+<div class="m-3 ">
     <nav class="flex" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-3">
           <li class="inline-flex items-center">
@@ -24,7 +24,7 @@
         </ol>
       </nav>
       {{-- <h1 class="absolute top-9">{{ strtoupper($currentUrl[0]) . substr($currentUrl, 1) }}</h1> --}}
-{{-- </div> --}}
+</div>
 
 <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
   <h1 class="text-2xl font-semibold">{{ strtoupper($currentUrl[0]) . substr($currentUrl, 1) }}  </h1>

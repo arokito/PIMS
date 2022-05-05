@@ -1,9 +1,8 @@
 <x-admin-layout>
-    <div class="py-12 w-full">
+    <div class="py-3 w-full">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
                 <div class="flex justify-end p-2">
-                    <a href="{{ route('zones.create') }}" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-md text-white">
+                    <a href="{{ route('zones.create') }}" class="px-4 py-2 bg-emerald-400 hover:bg-emerald-300 rounded-md text-white">
                    
                         <svg   class=" w-5 inline-block " xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
@@ -64,7 +63,7 @@
                     </div>
                 </div>
   
-            </div>
+            
         </div>
     </div>
 </x-admin-layout>

@@ -10,6 +10,7 @@ use App\Http\Controllers\ParishionerController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\ContributionCategoryController;
+use App\Http\Controllers\ContributionController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\PaymentMethodController;
@@ -85,6 +86,10 @@ Route::middleware(['auth','role:paroko|katibu|sister|admin'])->group(
         
 
         Route::get('download',[UserController::class,'download' ] );
+        Route::resource('/contributions',ContributionController::class);
+        Route::get('create_cont',[ContributionController::class,'createContribution'])->name('create_cont');
+        Route::get('pay_cash',[ContributionController::class,'payCash'])->name('pay_cash');
+        Route::get('pay_mpesa',[ContributionController::class,'PayMpesa'])->name('pay_mpesa');
 
     }
 

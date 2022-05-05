@@ -42,7 +42,7 @@ class ParishionerController extends Controller
        $parishioner = new Parishioner;
        
        $parishioner->first_name = $request->input('first_name');
-       $parishioner->last_name = $request->input('middle_name');
+       $parishioner->middle_name = $request->input('middle_name');
        $parishioner->last_name = $request->input('last_name');
        $parishioner->phone = $request->input('phone');
        $parishioner->email = $request->input('email');
@@ -58,9 +58,11 @@ class ParishionerController extends Controller
        $parishioner->family_id=$request->input('family_id');
       
        $parishioner->save();
+       
+       return redirect()->route('parishioners.index')->with('message','Data added Successfully');
 
         
-       return to_route('parishioners.index')->with('message','family created');
+     
 
         
 
@@ -98,7 +100,7 @@ class ParishionerController extends Controller
        $parishioner->save();
 
 
-       return to_route('parishioners.index')->with('message','parishioner created');
+       return to_route('parishioners.index')->with('message','parishioner updated');
 
        
       

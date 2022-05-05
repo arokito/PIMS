@@ -17,18 +17,28 @@
     />
     <link rel="stylesheet" href="{{ asset('/build/css/tailwind.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+  
+
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+    
+   <link rel="stylesheet" type="text/css" 
+   href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        
 
 
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="{{ asset('/js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
-   >
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 
 
   </head>
   <body>
-    @if (Session::has('message'))
+    {{-- @if (Session::has('message'))
       <script>
         setTimeout(() => {
           document.getElementById('message').style.display = "none";
@@ -58,7 +68,44 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif --}}
+    <script>
+      @if(Session::has('message'))
+      toastr.options =
+      {
+          "closeButton" : true,
+          "progressBar" : true
+      }
+              toastr.success("{{ session('message') }}");
+      @endif
+    
+      @if(Session::has('error'))
+      toastr.options =
+      {
+          "closeButton" : true,
+          "progressBar" : true
+      }
+              toastr.error("{{ session('error') }}");
+      @endif
+    
+      @if(Session::has('info'))
+      toastr.options =
+      {
+          "closeButton" : true,
+          "progressBar" : true
+      }
+              toastr.info("{{ session('info') }}");
+      @endif
+    
+      @if(Session::has('warning'))
+      toastr.options =
+      {
+          "closeButton" : true,
+          "progressBar" : true
+      }
+              toastr.warning("{{ session('warning') }}");
+      @endif
+    </script>
 
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
       <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
@@ -389,7 +436,9 @@
               <button
                 @click="openSettingsPanel"
                 type="button"
-                class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 
+                :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
+                focus:ring-offset-white dark:focus:ring-offset-dark"
               >
                 <span aria-hidden="true">
                   <svg
@@ -696,10 +745,10 @@
    
 
             <!-- Content -->
-            <div class="mt-2">
+            <div class="">
               {{ $slot }}
-              <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-              {!! Toastr::message() !!}
+              
+              
               
             </div>
           </main>
@@ -978,9 +1027,13 @@
     </div>
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
-    <script src="{{ asset('/build/js/script.js') }}"></script>
+     <script src="{{ asset('/build/jQuery-3.6.0/jquery-3.6.0.min.js') }}"></script>
+    {{-- <script src="{{ asset('/build/js/script.js') }}"></script>
+    <script src="{{ asset('/build/datatables.min.js') }}"></script>  --}}
+    
+   
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/dataTables.jqueryui.js"></script>
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> 
     <script>
      const setup = () => {
         const getTheme = () => {

@@ -3,20 +3,20 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2 dark:bg-darker">
                 <div class="flex justify-end p-2">
-                    <a href="{{ route('expenses.create') }}" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-md  dark:text-white dark:hover:bg-primary-dark dark:bg-darker ">
+                  
+                    <a href="{{ route('expenses.create') }}" class="px-4 py-2 bg-emerald-400 hover:bg-emerald-300 rounded-md text-white">
                    
                         <svg   class=" w-5 inline-block " xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
-                        </svg>
-                        Add
-                    </a>
+                          </svg>
+                        Add</a>
                 </div>
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200 dark:bg-darker">
-                            <thead class="bg-gray-50">
+                            <thead class="bg-gray-50 dark:bg-darker">
                             <tr>
                               
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
@@ -26,7 +26,7 @@
                                
                             </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody class="bg-white divide-y divide-gray-200 bg-white dark:bg-darker">
                                 @foreach ($expenses as $expense)
                                 <tr>
                                
